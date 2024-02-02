@@ -73,7 +73,7 @@ function App() {
     <>
       <div
         style={{
-          backgroundImage,
+          // backgroundImage,
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           minHeight: '100vh',
