@@ -18,11 +18,19 @@
       display: flex;
       align-items: center;
       gap: 15px;
-      .temp {
-        font-size: 8rem;
-        opacity: 0.8;
+      .temp-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .temp {
+          font-size: 8rem;
+          opacity: 0.8;
 
-        span {
+          span {
+            font-weight: 600;
+          }
+        }
+        .feels-like {
           font-weight: 600;
         }
       }
@@ -31,145 +39,182 @@
         flex-direction: column;
         gap: 5px;
         font-size: 1.5rem;
-        .time {
-          display: flex;
-          gap: 10px;
-          h3 {
-            font-weight: 300;
-          }
-          .time_text {
-            font-weight: 600;
-          }
+
+        .weather-type__text {
+          text-transform: capitalize;
+          font-size: 1.2rem;
         }
       }
     }
   }
-  .right {
-    flex: 4;
-    background: rgba(255, 255, 255, 0);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(9.5px);
-    -webkit-backdrop-filter: blur(15px);
-    display: flex;
-    flex-direction: column;
+}
+.right {
+  flex: 4;
+  background: rgba(255, 255, 255, 0);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9.5px);
+  -webkit-backdrop-filter: blur(15px);
+  display: flex;
+  flex-direction: column;
 
-    .top {
-      padding: 2rem;
+  .top {
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .form__group {
+      position: relative;
+      padding: 20px 0 0;
+      width: 100%;
+      max-width: 300px;
+
+      .form__field {
+        font-family: inherit;
+        width: 100%;
+        border: none;
+        border-bottom: 2px solid;
+        outline: 0;
+        font-size: 1.5rem;
+        color: #fff;
+        padding: 7px 0;
+        background: transparent;
+        transition: border-color 0.2s;
+      }
+
+      .form__field::placeholder {
+        color: transparent;
+      }
+
+      .form__field:placeholder-shown ~ .form__label {
+        font-size: 17px;
+        cursor: text;
+        top: 20px;
+      }
+
+      .form__label {
+        position: absolute;
+        top: 0;
+        display: block;
+        transition: 0.2s;
+        font-size: 17px;
+        color: #9b9b9b;
+        pointer-events: none;
+      }
+
+      .form__field:focus {
+        padding-bottom: 6px;
+        font-weight: 700;
+        border-width: 3px;
+        //   border-image: linear-gradient(to right, #116399, #38caef);
+        border-image-slice: 1;
+      }
+
+      .form__field:focus ~ .form__label {
+        position: absolute;
+        top: 0;
+        display: block;
+        transition: 0.2s;
+        font-size: 17px;
+        color: #fff;
+        font-weight: 700;
+        opacity: 0.8;
+      }
+
+      /* reset input */
+      .form__field:required,
+      .form__field:invalid {
+        box-shadow: none;
+      }
+    }
+    button {
+      width: 80px;
+      height: 80px;
+      border: none;
+      outline: none;
+      background-color: white;
+      opacity: 0.8;
+      font-size: 2rem;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      .form__group {
-        position: relative;
-        padding: 20px 0 0;
-        width: 100%;
-        max-width: 300px;
+      justify-content: center;
+    }
+  }
 
-        .form__field {
-          font-family: inherit;
-          width: 100%;
-          border: none;
-          border-bottom: 2px solid;
-          outline: 0;
-          font-size: 1.5rem;
-          color: #fff;
-          padding: 7px 0;
-          background: transparent;
-          transition: border-color 0.2s;
-        }
+  .data {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 2rem;
+    color: #fff;
+    opacity: 0.8;
+    font-size: 3rem;
 
-        .form__field::placeholder {
-          color: transparent;
-        }
-
-        .form__field:placeholder-shown ~ .form__label {
-          font-size: 17px;
-          cursor: text;
-          top: 20px;
-        }
-
-        .form__label {
-          position: absolute;
-          top: 0;
-          display: block;
-          transition: 0.2s;
-          font-size: 17px;
-          color: #9b9b9b;
-          pointer-events: none;
-        }
-
-        .form__field:focus {
-          padding-bottom: 6px;
-          font-weight: 700;
-          border-width: 3px;
-          //   border-image: linear-gradient(to right, #116399, #38caef);
-          border-image-slice: 1;
-        }
-
-        .form__field:focus ~ .form__label {
-          position: absolute;
-          top: 0;
-          display: block;
-          transition: 0.2s;
-          font-size: 17px;
-          color: #fff;
-          font-weight: 700;
-          opacity: 0.8;
-        }
-
-        /* reset input */
-        .form__field:required,
-        .form__field:invalid {
-          box-shadow: none;
-        }
-      }
-
-      button {
-        width: 80px;
-        height: 80px;
-        border: none;
-        outline: none;
-        background-color: white;
-        opacity: 0.8;
-        font-size: 2rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
+    .desc {
+      font-size: 1.6rem;
+      font-weight: 600;
     }
 
-    .line {
-      margin-top: 0.5rem;
-      width: 80%;
-      height: 2px;
-      background-color: #fff;
-      opacity: 0.4;
-      margin-left: 3rem;
-    }
-
-    .data {
+    .temps {
       display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      padding: 2rem;
-      color: #fff;
-      opacity: 0.8;
-      font-size: 3rem;
-
-      .humid {
-        align-items: center;
+      .temps-container {
+        flex: 1;
         display: flex;
-        gap: 2rem;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        span {
+          font-size: 1.2rem;
+        }
+        .temps_text {
+          font-size: 1.2rem;
+        }
       }
-      .wind {
+    }
+    .time {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      h3 {
+        font-weight: 300;
+      }
+      .time_text {
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+    }
+    .humid {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      .humidity {
+        align-items: center;
+        display: flex;
+        gap: 1rem;
+        font-size: 1.8rem;
+      }
+      .pressure {
+        align-items: center;
+        display: flex;
+        gap: 1rem;
+        font-size: 1.8rem;
+      }
+    }
+    .wind {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      .wind_speed {
         display: flex;
         align-items: center;
-        gap: 2rem;
+        gap: 1rem;
+        font-size: 1.5rem;
       }
       .direction {
         display: flex;
         align-items: center;
-        gap: 2rem;
+        gap: 1rem;
+        font-size: 1.5rem;
       }
     }
   }
@@ -190,7 +235,7 @@
   }
 }
 
-@media screen and (max-width: 815px) {
+@media screen and (max-width: 830px) {
   .app {
     flex-direction: column;
     .right {
@@ -210,7 +255,7 @@
         .wind,
         .direction {
           display: flex;
-          justify-content: center;
+          justify-content: space-around;
         }
       }
     }
@@ -250,6 +295,30 @@
   }
 }
 
+@media screen and (max-width: 430px) {
+  .left {
+    .bottom {
+      .temp-container {
+        .temp {
+          font-size: 6rem !important;
+        }
+        .feels_like {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+  .data {
+    .weather-type,
+    .humid,
+    .wind {
+      display: flex;
+      justify-content: space-around;
+      flex-direction: column;
+      gap: 1em;
+    }
+  }
+}
 .Clouds {
   * {
     color: black;
@@ -261,6 +330,30 @@
           color: black;
         }
         .form__label {
+          color: black;
+        }
+        .form__field:focus ~ .form__label {
+          color: black;
+        }
+      }
+    }
+  }
+}
+
+.Clear {
+  * {
+    color: black;
+  }
+  .right {
+    .top {
+      .form__group {
+        .form__field {
+          color: black;
+        }
+        .form__label {
+          color: black;
+        }
+        .form__field:focus ~ .form__label {
           color: black;
         }
       }
@@ -281,6 +374,9 @@
         .form__label {
           color: black;
         }
+        .form__field:focus ~ .form__label {
+          color: black;
+        }
       }
     }
   }
@@ -297,6 +393,9 @@
           color: black;
         }
         .form__label {
+          color: black;
+        }
+        .form__field:focus ~ .form__label {
           color: black;
         }
       }
