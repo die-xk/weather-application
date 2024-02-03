@@ -55,7 +55,7 @@ function App() {
     event.preventDefault();
     fetchData();
     fetchTime();
-    setBackgroundImage(`url(src/assets/${weatherData?.weather[0]?.main}.jpg)`)
+    setBackgroundImage(`url(/${weatherData?.weather[0]?.main}.jpg)`)
   };
 
   return (
